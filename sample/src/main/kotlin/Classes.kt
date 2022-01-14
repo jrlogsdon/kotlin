@@ -16,6 +16,11 @@ fun buildAquarium() {
     aquarium3.volume = 40
     aquarium3.printSize()
 
+    println("\n\nPart about subclasses")
+
+    val myTower = TowerTank(diameter = 25, height = 40)
+    myTower.printSize()
+
 }
 
 fun main() {
