@@ -3,15 +3,15 @@ abstract class AquariumFish: FishAction {
     override fun eat() = println("yum")
 }
 
-class Shark : AquariumFish(), FishAction {
+class Shark : AquariumFish(), FishAction, FishColor {
     override val color = "gray"
     override fun eat() {
         println("Hunt and eat fish")
     }
 }
 
-class Plecostomus: AquariumFish(), FishAction {
-    override val color = "gold"
+// interace delegation on FishColor
+class Plecostomus(fishColor: FishColor = GoldColor): AquariumFish(), FishAction, FishColor by fishColor  {
     override fun eat() {
         println("Eat algae")
     }
@@ -20,6 +20,11 @@ class Plecostomus: AquariumFish(), FishAction {
 interface FishAction {
     fun eat()
 }
+
+interface FishColor {
+    val color: String
+}
+
 
 interface AquariumAction {
     fun eat()
@@ -39,8 +44,21 @@ fun makeFish() {
 
     pleco.eat()
     println("Plecostomus: ${pleco.color}")
+
+
+    val secondpleco = Plecostomus(fishColor = BlueColor)
+    println("Pleco: ${secondpleco.color}")
 }
 
 fun main() {
     makeFish()
+}
+
+// object is used for creating a single instance of something
+object GoldColor : FishColor {
+    override val color = "golden"
+}
+
+object BlueColor : FishColor {
+    override val color = "blue"
 }
