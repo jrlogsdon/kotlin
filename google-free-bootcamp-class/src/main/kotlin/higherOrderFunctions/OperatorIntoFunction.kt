@@ -1,3 +1,13 @@
+package higherOrderFunctions
+
+// higher order function (takes a function)
+fun updateDirty(dirty : Int, operation: (Int) -> Int): Int {
+
+    return operation(dirty)
+}
+
+// compact function
+fun increaseDirty( start : Int) = start + 1
 
 fun main() {
     var dirtyLevel = 20
@@ -15,12 +25,3 @@ fun main() {
     println(updateDirty(20) { it + 23})
 
 }
-
-// higher order function (takes a function)
-fun updateDirty(dirty : Int, operation: (Int) -> Int): Int {
-
-    return operation(dirty)
-}
-
-// compact function
-fun increaseDirty( start : Int) = start + 1
