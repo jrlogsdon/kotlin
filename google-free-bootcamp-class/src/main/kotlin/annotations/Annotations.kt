@@ -40,10 +40,23 @@ fun testGetters() {
     }
 }
 
+fun labels() {
+    outerLoop@ for (i in 1..100) {
+        print("$i ")
+        for (j in 1..100) {
+            if (i > 10) break@outerLoop
+        }
+    }
+}
+
+val newPart = "----\npart"
+
 fun main() {
     testReflection()
-    println("----\npart2")
+    println("$newPart 2")
     testAnnotations()
-    println("----\npart3")
+    println("$newPart 3")
     testGetters()
+    println("$newPart 4")
+    labels()
 }
