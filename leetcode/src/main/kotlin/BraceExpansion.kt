@@ -1,5 +1,6 @@
 class BraceExpansion {
     fun expand(s: String): Array<String> {
+
         var strings = mutableListOf<StringBuilder>(StringBuilder())
         var i = 0
         while (i < s.length) {
